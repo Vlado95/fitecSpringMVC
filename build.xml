@@ -1,0 +1,11 @@
+<project>
+	<property name="wardir"   value="${basedir}\target" />
+	<property name="warfile"  value="${wardir}\FitecSpringMVC-0.0.1-SNAPSHOT.war" />
+	<property name="server"   value="C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps\" />
+	<property name="sfile"     value="fitecMVC.war" />
+    <target name="delivery">
+    	<echo message="Delivery version (${ant.java.version}) ${warfile}"/>
+    	<echo message="Copy WAR File ${warfile} to ${server}/${sfile} "/>
+    	<copy file="${warfile}" tofile="${server}/${sfile}"/>
+    </target>
+</project>
