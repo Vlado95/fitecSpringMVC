@@ -27,11 +27,6 @@ import fitec.dba.metier.Livre;
 import fitec.service.ServiceEditeur;
 import fitec.validator.EditeurValidator;
 
-//import fitec.dba.dao.IDao;
-//import fitec.dba.factory.HbnFactory.DaoMetier;
-//import fitec.dba.metier.Auteur;
-//import fitec.service.HbnFactory;
-
 /**
  *
  * @author Fitec
@@ -40,13 +35,13 @@ import fitec.validator.EditeurValidator;
 @RequestMapping("/editeur")
 public class EditeurController {
 
-    @Autowired
-    private HbnFactory factory;
-    
-    @Autowired
-    private ServiceEditeur service;
-    
-    private static List<Editeur> e;
+	@Autowired
+	private HbnFactory factory;
+
+	@Autowired
+	private ServiceEditeur service;
+
+	private static List<Editeur> e;
 
 	@RequestMapping("/editeurs")
 	public String listeEditeur(Model model) {
@@ -55,9 +50,6 @@ public class EditeurController {
 		return "/editeur/editeursList";
 	}
 
- 
-	
-	
 	@RequestMapping(value = "/ajoutEditeur", method = RequestMethod.GET)
 	public String addEditeur(Model model) {
 		model.addAttribute("editeur", new Editeur());
@@ -67,20 +59,20 @@ public class EditeurController {
 	@RequestMapping(value = "/ajoutEditeur", method = RequestMethod.POST)
 	public String addEditeur(Editeur editeur, BindingResult result) {
 
-		 EditeurValidator validator = new EditeurValidator();
+		EditeurValidator validator = new EditeurValidator();
 
-		 validator.validate(editeur, result);
-		 if (result.hasErrors()) {
-		 return "/editeur/ajoutEditeur";
-		 }
+		validator.validate(editeur, result);
+		if (result.hasErrors()) {
+			return "/editeur/ajoutEditeur";
+		}
 
 		service.insert(editeur);
-		return "redirect:/editeur/editeurs";
+		return "redirect:/editeur/editeurs.htm";
 	}
 
-	// @InitBinder
-	// public void validation(WebDataBinder binder) {
-	// binder.setValidator(new LivreValidator());
-	// }
+	@InitBinder
+	public void validation(WebDataBinder binder) {
+		binder.setValidator(new EditeurValidator());
+	}
 
 }
