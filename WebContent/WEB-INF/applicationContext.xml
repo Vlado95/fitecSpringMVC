@@ -42,6 +42,7 @@
     <bean id="sessionFactory" 
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
           p:dataSource-ref="dataSource">
+        <property name="mappingJarLocations"  value="classpath*:FitecSpringDAO-4.1.jar"></property>
         <property name="mappingResources">
             <list>
                 <value>fitec/dba/metier/User.hbm.xml</value>

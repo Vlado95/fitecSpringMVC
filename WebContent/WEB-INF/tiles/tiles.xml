@@ -5,7 +5,7 @@
 <tiles-definitions>
 
 	<definition name="defaultTemplate" template="/WEB-INF/tiles/template/template.jsp">
-		 <put-attribute name="title" value="" /> 
+		<put-attribute name="title" value="" />
 		<put-attribute name="header" value="/WEB-INF/tiles/template/header.jsp" />
 		<put-attribute name="menu" value="/WEB-INF/tiles/template/menu.jsp" />
 		<put-attribute name="body" value="" />
@@ -16,6 +16,11 @@
 	<definition name="index" extends="defaultTemplate">
 		<put-attribute name="title" value="welcome" />
 		<put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
+	</definition>
+
+	<definition name="/livre/listeLivre" extends="defaultTemplate">
+		<put-attribute name="title" value="livres" />
+		<put-attribute name="body" value="/WEB-INF/jsp/livre/listeLivre.jsp" />
 	</definition>
 
 </tiles-definitions>

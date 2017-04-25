@@ -5,30 +5,66 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Ajouter Livre</title>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal"
+		aria-hidden="true">&times;</button>
+	<h4 class="modal-title">Ajouter un livre</h4>
+</div>
 
 
+<form:form method="post" name="ajoutLivre" modelAttribute="livre"
+	class="form-horizontal">
+	<div class="modal-body">
 
-    </head>
-    <body>
-        <h1>Ajouter un livre</h1>
-        <form:form method="post" name="ajoutLivre" modelAttribute="livre">
-            <form:hidden path="id"/>
-            <form:label path="titre">Titre : </form:label><br>
-            <form:input path="titre"/>
-            <form:errors path="titre" cssStyle="color : red;"/><br>
-            <form:label path="auteur">Auteur : </form:label><br>
-            <form:select items="${listA}" itemLabel="nom" itemValue="id" path="auteur.id"/><br>
-            <form:label path="editeur">Editeur : </form:label><br>
-            <form:select items="${listE}" itemLabel="nom" itemValue="id" path="editeur.id"/><br>
-            <form:label path="nbPages">Nombre de pages : </form:label><br>
-            <form:input path="nbPages"/><br>
-            <form:button>Valider</form:button>
-        </form:form>
-    </body>
-</html>
+		<form:hidden path="id" />
+		<div class="form-group">
+			<label class="col-xs-3 control-label">Titre : </label>
+			<div class="col-xs-5">
+				<form:input path="titre" class="form-control" />
+				<form:errors path="titre" cssStyle="color : red;" />
+			</div>
+		</div>
+
+		<div class="form-group">
+		<form:label class="col-xs-3 control-label" path="auteur">Auteur : </form:label>
+<!-- 			<label class="col-xs-3 control-label">Editeur : </label> -->
+			<div class="col-xs-5">
+			
+		<form:select class="form-control" items="${listA}" itemLabel="nom" itemValue="id"
+			path="auteur.id" />
+			</div>
+		</div>
+
+
+		<div class="form-group">
+			<label class="col-xs-3 control-label">Editeur : </label>
+			<div class="col-xs-5">
+				<form:select class="form-control" items="${listE}" itemLabel="nom"
+					itemValue="id" path="editeur.id" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-xs-3 control-label">Nombre de pages :</label>
+			<div class="col-xs-5">
+				<form:input path="nbPages" class="form-control" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-xs-3 control-label">prix:</label>
+			<div class="col-xs-5">
+				<form:input class="form-control" path="prix" />
+				<form:errors path="prix" cssClass="" />
+			</div>
+		</div>
+
+		<div class="modal-footer">
+			<button type="submit" class="btn btn-primary">Valider</button>
+			<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+		</div>
+
+	</div>
+</form:form>

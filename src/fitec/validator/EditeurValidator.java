@@ -9,6 +9,8 @@ import fitec.dba.metier.Editeur;
 
 
 
+
+
 public class EditeurValidator implements  Validator {
 
     @Override
