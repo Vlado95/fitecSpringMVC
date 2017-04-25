@@ -35,5 +35,10 @@ public abstract class Services<T extends Metier> {
     public IDao<T> getDao() {
         return dao;
     }
+    
+    public List<T> selectLike(String str) {
+        List<T> l = dao.searchLike(str);
+        return l;
+    }
 
 }

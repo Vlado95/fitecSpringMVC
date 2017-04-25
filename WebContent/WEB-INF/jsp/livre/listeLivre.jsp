@@ -27,12 +27,10 @@
 					<td>${livre.auteur.nom}</td>
 					<td>${livre.editeur.nom}</td>
 					<td>${livre.prix}</td>
-					<td><a
-						href="<%=request.getContextPath()%>/livre/ajoutLivre.htm?id=${livre.id}">modifier</a>
-						<a onclick="myFunction()" href="#" data-toggle="modal"
+					<td><a onclick="myFunction()" href="#" data-toggle="modal"
 						data-target="#dialog"
 						data-url="<%=request.getContextPath()%>/livre/ajoutLivre.htm?id=${livre.id}">
-							<span class="glyphicon glyphicon-pencil"></span>
+							<span class="glyphicon glyphicon-pencil">modifier</span>
 					</a></td>
 				</tr>
 			</c:forEach>

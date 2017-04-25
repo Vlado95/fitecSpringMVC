@@ -75,7 +75,7 @@ public class LivreController {
         } else {
             service.insert(livre);
         }
-        return "redirect:/index.htm";
+        return "redirect:/livre/lesLivres.htm";
     }
 
     @RequestMapping("/lesLivres")
