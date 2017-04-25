@@ -29,7 +29,7 @@ public class UserValidator implements Validator {
         User u = (User) o;
         if(u.getNom().length()< 2)
         {
-            errors.rejectValue("nom", "","vous devez mettre au moins 2 lettres!!");
+            errors.rejectValue("nom", "","vous devez mettre au moins 2 lettres!");
         }
         ValidationUtils.rejectIfEmpty(errors, "email", "", "l'email ne doit pas être vide");
         ValidationUtils.rejectIfEmpty(errors, "nom", "", "le nom ne doit pas être vide");
